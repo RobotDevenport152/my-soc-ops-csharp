@@ -1,36 +1,36 @@
-@using SocOps.Models
-
-<div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+<div class="flex flex-col min-h-full">
+    <!-- Cozy header -->
+    <header class="flex items-center justify-between p-4 bg-cozy-card border-b border-cozy-warm-gray-light shadow-sm">
         <button
             @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
+            class="text-cozy-body text-sm px-4 py-2 rounded-xl hover:bg-cozy-warm transition-colors duration-200 flex items-center gap-2">
+            ← Back to Menu
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
+        <h1 class="font-bold text-cozy-title text-xl">☕ Soc Ops</h1>
+        <div class="w-20"></div> <!-- Spacer -->
     </header>
 
-    <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
+    <!-- Cozy instructions -->
+    <p class="text-center text-cozy-muted text-sm py-3 px-4 bg-cozy-warm/30">
+        Tap a square when you find someone who matches it ✨
     </p>
 
-    <!-- Bingo indicator -->
+    <!-- Cozy bingo indicator -->
     @if (HasBingo)
     {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
+        <div class="bg-cozy-success/20 text-cozy-brown text-center py-3 font-semibold text-sm border-y border-cozy-success/30 animate-cozy-bounce">
+            🎉 BINGO! You got a line! 🎉
         </div>
     }
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+    <!-- Cozy board container -->
+    <div class="flex-1 flex items-center justify-center p-6">
+        <div class="bg-cozy-card rounded-3xl p-6 shadow-xl border border-cozy-warm-gray-light">
+            <BingoBoard
+                Board="@Board"
+                WinningSquareIds="@WinningSquareIds"
+                OnSquareClick="@OnSquareClick" />
+        </div>
     </div>
 </div>
 
