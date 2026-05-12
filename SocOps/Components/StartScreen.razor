@@ -1,21 +1,35 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
+<div class="flex flex-col items-center justify-center min-h-full p-6">
     <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+        <!-- Cozy title with warm glow -->
+        <div class="mb-4">
+            <h1 class="text-5xl font-bold text-cozy-title mb-2 animate-cozy-glow">☕ Soc Ops</h1>
+            <p class="text-xl text-cozy-body">Cozy Social Bingo</p>
+        </div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
+        <!-- Cozy instruction card -->
+        <div class="bg-cozy-card rounded-2xl p-6 mb-8 shadow-lg border border-cozy-warm-gray-light">
+            <h2 class="font-semibold text-cozy-title mb-4 text-lg">How to play</h2>
+            <ul class="text-left text-cozy-body text-sm space-y-3">
+                <li class="flex items-start gap-2">
+                    <span class="text-cozy-accent text-lg">👥</span>
+                    <span>Find people who match the questions</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-cozy-accent text-lg">👆</span>
+                    <span>Tap a square when you find a match</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-cozy-success text-lg">🎉</span>
+                    <span>Get 5 in a row to win!</span>
+                </li>
             </ul>
         </div>
 
+        <!-- Cozy start button -->
         <button
             @onclick="OnStart"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
+            class="w-full bg-cozy-accent text-white font-bold py-4 px-8 rounded-2xl text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-cozy-orange-dark">
+            🚀 Start Game
         </button>
     </div>
 </div>
