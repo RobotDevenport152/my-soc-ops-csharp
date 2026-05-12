@@ -2,16 +2,17 @@
 
 ## ✅ Development Checklist (Before Commit)
 
-- [ ] `dotnet build SocOps/SocOps.csproj` passes with no errors
-- [ ] No compiler warnings
-- [ ] Code follows C# naming conventions (PascalCase public, camelCase private)
+- [ ] `dotnet build SocOps/SocOps.csproj` passes with no errors/warnings
+- [ ] All linting rules pass (see **Linting** section below)
+- [ ] Code follows C# naming conventions (PascalCase public, camelCase private with `_` prefix)
 - [ ] No unused imports or variables
+- [ ] All async methods are properly awaited (no fire-and-forget unless intentional with `_` discard)
 
 ## Quick Start
 
 ```bash
 cd SocOps
-dotnet build    # Build
+dotnet build    # Build (with strict linting)
 dotnet run      # Dev server (http://localhost:5166)
 ```
 
@@ -38,6 +39,31 @@ SocOps/
 **State Management**: Singleton `BingoGameService` with event-driven component updates. State persisted to localStorage.
 
 **Styling**: Custom CSS utilities in `wwwroot/css/app.css` — see [CSS Guide](.github/instructions/css-utilities.instructions.md)
+
+## Linting
+
+### Strict Rules Enabled
+
+- **TreatWarningsAsErrors**: `true` — all warnings are compilation errors
+- **Unused code detection**: IDE0005, IDE0060, IDE0059, IDE0058, IDE0100
+- **Async/await enforcement**: CS4014 — unawaited async calls are errors
+- **Code style enforcement** via `.editorconfig`
+
+### Naming Conventions
+
+- **Public members**: `PascalCase` (properties, methods, events)
+- **Private fields**: `_camelCase` (with `_` prefix)
+- **Interfaces**: `IPascalCase` (start with `I`)
+- **Local variables**: `camelCase`
+
+### Common Lint Fixes
+
+| Issue | Fix |
+|-------|-----|
+| Unused variable | Remove or prefix with `_` discard if intentional |
+| Unused import | Remove from file |
+| Unawaited async call | Add `await` or explicitly use `_ = MethodAsync()` |
+| Wrong casing | Follow naming conventions above |
 
 ## Common Tasks
 
